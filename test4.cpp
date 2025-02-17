@@ -12,7 +12,9 @@ public:
 
 class Derived2 : public Derived1 {
 public:
-    Derived2(int x) : Derived1(x), Base(x)  { std::cout << "Derived2 Constructor\n"; }
+    Derived2(int x) : Derived1(x), Base(x)  {  // try to remove Base(x)
+        std::cout << "Derived2 Constructor\n"; 
+    }
 };
 
 

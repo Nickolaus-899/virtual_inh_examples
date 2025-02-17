@@ -17,7 +17,7 @@ public:
 
 class Final : public Derived1, public Derived2 {
 public:
-    Final(int x) : Derived1(x), Derived2(x), Base(x) { 
+    Final(int x) : Derived1(x), Derived2(x), Base(x) {  // try to remove Base(x)
         std::cout << "Final Constructor\n"; 
     }
 };
