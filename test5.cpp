@@ -21,5 +21,5 @@ public:
 
 int main() {
     Derived2 obj(10);
-    return 0;
+    return 1;
 }

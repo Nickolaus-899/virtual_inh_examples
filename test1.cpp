@@ -34,5 +34,5 @@ public:
 int main() {
     Final obj(10);
     std::cout << obj.init << std::endl;
-    return 0;
+    return 1;
 }

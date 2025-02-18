@@ -24,5 +24,5 @@ public:
 
 int main() {
     Final obj(10);
-    return 0;
+    return 1;
 }

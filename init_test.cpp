@@ -43,5 +43,5 @@ int main() {
     lynx.age = 5;
     std::cout << lynx.age << std::endl;
 
-    return 0;
+    return 1;
 }

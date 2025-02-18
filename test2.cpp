@@ -25,5 +25,5 @@ int main() {
     D d;
     d.method();
 
-    return 0;
+    return 1;
 }

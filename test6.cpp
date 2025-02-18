@@ -38,5 +38,5 @@ public:
 int main() {
     Final obj(10);
     // try to cout obj.init
-    return 0;
+    return 1;
 }
