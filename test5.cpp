@@ -2,37 +2,24 @@
 
 class Base {
 public:
-    int init = 0;
-    Base(int x) { std::cout << "Base Constructor: " << x << "\n"; init = x; }
-    Base(): init(0) {}
+    Base(int x) { std::cout << "Base Constructor: " << x << "\n"; }
+    Base() { std::cout << "Base default constructor: " << -1 << "\n"; }
 };
 
 class Derived1 : public virtual Base {
 public:
-    Derived1(int x) : Base(x) { 
-        std::cout << "Derived1 Constructor\n";
-        this->init *= 3;
-    }
+    Derived1(int x) : Base(x) { std::cout << "Derived1 Constructor\n"; }
 };
 
-class Derived2 : public virtual Base {
+class Derived2 : public Derived1 {
 public:
-    Derived2(int x) : Base(x) { 
+    Derived2(int x) : Derived1(x) {  // we call Base() implicitly
         std::cout << "Derived2 Constructor\n"; 
-        this->init *= 4;
     }
 };
 
-class Final : public Derived1, public Derived2 {
-public:
-    Final(int x) : Derived1(x), Derived2(x), Base(x) {  // try to remove Base(x)
-        std::cout << "Final Constructor\n"; 
-    }
-};
- 
 
 int main() {
-    Final obj(10);
-    std::cout << obj.init << std::endl;
+    Derived2 obj(10);
     return 0;
 }

@@ -1,58 +1,38 @@
 #include <iostream>
-#include <string>
 
-
-class Animal {
+class Base {
 public:
-    int age;
-    std::string color;
-    void live() {
-        std::cout << "Is living!" << std::endl;
+    int init = 0;
+    Base(int x) { std::cout << "Base Constructor: " << x << "\n"; init = x; }
+    Base(): init(0) {}
+};
+
+class Derived1 : public virtual Base {
+public:
+    Derived1(int x) : Base(x) { 
+        std::cout << "Derived1 Constructor\n";
+        this->init *= 3;
     }
 };
 
-class Cat : virtual public Animal {
+class Derived2 : public virtual Base {
 public:
-    void meow() {
-        std::cout << "Meow!" << std::endl;
+    Derived2(int x) : Base(x) { 
+        std::cout << "Derived2 Constructor\n"; 
+        this->init *= 4;
     }
 };
 
-class Predator : virtual public Animal {
+class Final : public Derived1, public Derived2 {
 public:
-    void attack() {
-        std::cout << "Attack!" << std::endl;
+    Final(int x) : Derived1(x), Derived2(x), Base(x) {  // try to remove Base(x)
+        std::cout << "Final Constructor\n"; 
     }
 };
-
-class Cat2 : virtual public Cat {
-public:
-    void meow2() {
-        std::cout << "Meow!" << std::endl;
-    }
-};
-
-class Predator2 : virtual public Predator {
-public:
-    void attack2() {
-        std::cout << "Attack!" << std::endl;
-    }
-};
-
-
-class Lynx : public Cat2, public Predator2 {
-public:
-    void lynx_action() {
-        std::cout << "Lynx is acting!" << std::endl;
-    }
-};
+ 
 
 int main() {
-    Lynx lynx;
-    lynx.meow2();
-    lynx.age = 5;
-    std::cout << lynx.age << std::endl;
-
+    Final obj(10);
+    std::cout << obj.init << std::endl;
     return 0;
 }
-    
