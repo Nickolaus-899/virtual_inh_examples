@@ -187,21 +187,21 @@ int main() {
     std::cout << lynx.age << std::endl;
 
     DASH_FUNC(1);
-    test_1::Final obj(10);
-    std::cout << obj.init << std::endl;
+    test_1::Final obj1(10);
+    std::cout << obj1.init << std::endl;
 
     DASH_FUNC(2);
     test_2::D d;
     d.method();
 
     DASH_FUNC(3);
-    test_3::Final obj(10);
+    test_3::Final obj3(10);
 
     DASH_FUNC(4);
-    test_4::Derived2 obj(10);
+    test_4::Derived2 obj4(10);
 
     DASH_FUNC(5);
-    test_5::Derived2 obj(10);
+    test_5::Derived2 obj5(10);
 
     return 0;
 }
